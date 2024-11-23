@@ -9,6 +9,16 @@ import { mdiFinance } from '@mdi/js'
 import { mdiAccountTie } from '@mdi/js'
 import { mdiTestTube } from '@mdi/js'
 import { mdiSecurity } from '@mdi/js'
+import { mdiIncognito } from '@mdi/js'
+import { mdiAccountGroupOutline } from '@mdi/js'
+import { mdiDomain } from '@mdi/js'
+import { mdiSitemapOutline } from '@mdi/js'
+import { mdiEarth } from '@mdi/js'
+import { mdiChartScatterPlotHexbin } from '@mdi/js'
+import { mdiTableAccount } from '@mdi/js'
+import { mdiClipboardTextClockOutline } from '@mdi/js'
+import { mdiBackupRestore } from '@mdi/js'
+import { mdiCogOutline } from '@mdi/js'
 
 // Vuetify
 // how too add vuetify: https://www.youtube.com/watch?v=w6bj_GCxwqg
@@ -50,6 +60,16 @@ export default createVuetify({
     // ex: <v-icon icon="$account" />
     aliases: {
       ...aliases,
+      CogOutline: mdiCogOutline,
+      BackupRestore: mdiBackupRestore,
+      ClipboardTextClockOutline: mdiClipboardTextClockOutline,
+      TableAccount: mdiTableAccount,
+      ChartScatterPlotHexbin: mdiChartScatterPlotHexbin,
+      Earth: mdiEarth,
+      SitemapOutline: mdiSitemapOutline,
+      Domain: mdiDomain,
+      AccountGroupOutline: mdiAccountGroupOutline,
+      Incognito: mdiIncognito,
       Security: mdiSecurity,
       TestTube: mdiTestTube,
       AccountTie: mdiAccountTie,

@@ -19,6 +19,10 @@ import { mdiTableAccount } from '@mdi/js'
 import { mdiClipboardTextClockOutline } from '@mdi/js'
 import { mdiBackupRestore } from '@mdi/js'
 import { mdiCogOutline } from '@mdi/js'
+import { mdiPhoneInTalkOutline } from '@mdi/js'
+import { mdiPhoneInTalk } from '@mdi/js'
+import { mdiSd } from '@mdi/js'
+import { mdiViewDashboardOutline } from '@mdi/js'
 
 // Vuetify
 // how too add vuetify: https://www.youtube.com/watch?v=w6bj_GCxwqg
@@ -60,6 +64,10 @@ export default createVuetify({
     // ex: <v-icon icon="$account" />
     aliases: {
       ...aliases,
+      ViewDashboardOutline: mdiViewDashboardOutline,
+      Sd: mdiSd,
+      PhoneInTalk: mdiPhoneInTalk,
+      PhoneInTalkOutline: mdiPhoneInTalkOutline,
       CogOutline: mdiCogOutline,
       BackupRestore: mdiBackupRestore,
       ClipboardTextClockOutline: mdiClipboardTextClockOutline,

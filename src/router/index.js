@@ -35,8 +35,10 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     // Auth
+    // sensitive = strict path aka no change
     {
       path: '/login',
+      sensitive: false,
       name: 'Login',
       component: LoginView,
       meta: {
@@ -49,6 +51,7 @@ const router = createRouter({
     // dashboard :viewType = guest, regular, leader, & admin
     {
       path: '/:userid/user/dashboard/:viewType',
+      sensitive: false,
       name: 'Dashboard',
       component: DashboardView,
       meta: {
@@ -60,6 +63,7 @@ const router = createRouter({
     // profile :viewType = guest (no profile assigned) & regular (profile assigned)
     {
       path: '/:userid/user/profile/:viewType',
+      sensitive: false,
       name: 'Profile',
       component: ProfileView,
       meta: {
@@ -69,6 +73,7 @@ const router = createRouter({
     },
     {
       path: '/:userid/user/growthplans',
+      sensitive: false,
       name: 'GrowthPlans',
       component: GrowthPlansView,
       meta: {
@@ -78,6 +83,7 @@ const router = createRouter({
     },
     {
       path: '/:userid/user/reports',
+      sensitive: false,
       name: 'Reports',
       component: ReportsView,
       meta: {
@@ -87,6 +93,7 @@ const router = createRouter({
     },
     {
       path: '/:userid/user/settings',
+      sensitive: false,
       name: 'Settings',
       component: SettingsView,
       meta: {
@@ -98,6 +105,7 @@ const router = createRouter({
     // MyTeam :viewType = single || multiple team/s from company/ies
     {
       path: '/:userid/leader/myteam/:viewType',
+      sensitive: false,
       name: 'MyTeam',
       component: MyTeamView,
       meta: {
@@ -108,6 +116,7 @@ const router = createRouter({
     // TeamGrowthPlans :viewType = single || multiple team/s files from company/ies
     {
       path: '/:userid/leader/teamgrowthplans/:viewType',
+      sensitive: false,
       name: 'TeamGrowthPlans',
       component: TeamGrowthPlansView,
       meta: {
@@ -118,6 +127,7 @@ const router = createRouter({
     // TeamReports :viewType = single || multiple team/s reports from company/ies
     {
       path: '/:userid/leader/teamreports/:viewType',
+      sensitive: false,
       name: 'TeamReports',
       component: TeamReportsView,
       meta: {
@@ -129,6 +139,7 @@ const router = createRouter({
     // Team :viewType = guest (limited data view) or regular
     {
       path: '/:userid/data/team/:viewType',
+      sensitive: false,
       name: 'Team',
       component: TeamView,
       meta: {
@@ -139,6 +150,7 @@ const router = createRouter({
     // Org :viewType = guest (limited data view) or regular
     {
       path: '/:userid/data/org/:viewType',
+      sensitive: false,
       name: 'Org',
       component: OrgView,
       meta: {
@@ -149,6 +161,7 @@ const router = createRouter({
     // Map :viewType = guest (limited data view) or regular
     {
       path: '/:userid/data/map/:viewType',
+      sensitive: false,
       name: 'Map',
       component: MapView,
       meta: {
@@ -159,6 +172,7 @@ const router = createRouter({
     // Graph :viewType = guest (limited data view) or regular
     {
       path: '/:userid/data/graph/:viewType',
+      sensitive: false,
       name: 'Graph',
       component: GraphView,
       meta: {
@@ -168,6 +182,7 @@ const router = createRouter({
     },
     {
       path: '/:userid/data/contacts/',
+      sensitive: false,
       name: 'Contacts',
       component: ContactsView,
       meta: {
@@ -176,13 +191,96 @@ const router = createRouter({
       },
     },
     // admin
-
+    {
+      path: '/:userid/admin/users',
+      name: 'Users',
+      sensitive: true,
+      component: UsersView,
+      meta: {
+        authRequired: true,
+        page: 'users',
+      },
+    },
+    {
+      path: '/:userid/admin/companies',
+      sensitive: true,
+      name: 'Companies',
+      component: CompaniesView,
+      meta: {
+        authRequired: true,
+        page: 'companies',
+      },
+    },
+    {
+      path: '/:userid/admin/leaders',
+      sensitive: true,
+      name: 'Leaders',
+      component: LeadersView,
+      meta: {
+        authRequired: true,
+        page: 'leaders',
+      },
+    },
+    {
+      path: '/:userid/admin/teams',
+      sensitive: true,
+      name: 'Teams',
+      component: TeamsView,
+      meta: {
+        authRequired: true,
+        page: 'teams',
+      },
+    },
+    // it
+    {
+      path: '/:userid/it/techinvt',
+      sensitive: true,
+      name: 'TechInvt',
+      component: TechInvtView,
+      meta: {
+        authRequired: true,
+        page: 'techinvt',
+      },
+    },
+    {
+      path: '/:userid/it/logs',
+      sensitive: true,
+      name: 'Logs',
+      component: LogsView,
+      meta: {
+        authRequired: true,
+        page: 'logs',
+      },
+    },
+    {
+      path: '/:userid/it/archive',
+      sensitive: true,
+      name: 'Archive',
+      component: ArchiveView,
+      meta: {
+        authRequired: true,
+        page: 'archive',
+      },
+    },
+    // misc
+    // :errorCode = 404 etc passed
+    {
+      path: '/:userid/error/:errorCode',
+      sensitive: false,
+      name: 'Error',
+      component: ErrorView,
+      meta: {
+        authRequired: false,
+        page: 'error',
+      },
+    },
     {
       path: '/',
       name: 'home',
       component: HomeView,
     },
   ],
+  strict: true,
 })
 
 export default router

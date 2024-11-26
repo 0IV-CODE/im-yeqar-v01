@@ -36,6 +36,7 @@ export const useRoutesAuthStore = defineStore('routesAuth', {
       { parent: 'user', name: 'Growth Plans', icon: '$Finance', path: '/:userid/user/growthplans' },
       { parent: 'user', name: 'Reports', icon: '$TestTube', path: '/:userid/user/reports' },
       { parent: 'user', name: 'Settings', icon: '$CogOutline', path: '/:userid/user/settings' },
+      { parent: 'user', name: 'Logout', icon: '$Logout', path: '/login' },
       // leader
       {
         parent: 'leader',

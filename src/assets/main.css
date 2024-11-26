@@ -1,55 +1,22 @@
 @import './base.css';
 
-#app {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-/* Note: if layout breaks undo comment */
-/* 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
-
 @font-face {
-  font-family: 'TechnaSans';
-  src:
-    local('TechnaSans'),
-    url('https://ik.imagekit.io/STBS/CSMS/fonts/TechnaSans-Regular_VADgAQAFf.otf?updatedAt=1719504734599')
-      format('truetype');
+  font-family: 'maveric';
+  src: url('https://ik.imagekit.io/invimgs0101/mcinvt/fonts/Maveric%20Demo_xI5B1VGg6.otf?updatedAt=1718404468462')
+    format('opentype');
+  font-display: swap;
 }
-
 @font-face {
-  font-family: 'LucidaGrande';
-  src:
-    local('LucidaGrande'),
-    url('https://ik.imagekit.io/STBS/CSMS/fonts/LucidaGrande_ZJhYWfPlkY.ttf?updatedAt=1719504734657')
-      format('truetype');
+  font-family: 'tachyo';
+  src: url('https://ik.imagekit.io/invimgs0101/mcinvt/fonts/Tachyo-1.0.0_L8xJMM9WK.otf?updatedAt=1718405005827')
+    format('opentype');
+  font-display: swap;
 }
 
-/* Header Fonts */
-/* h3-4 for headers */
-#tF {
-  font-family: 'TechnaSans', sans-serif !important;
+/* ID Fonts */
+#mavFont {
+  font-family: 'maveric', 'Times New Roman', sans-serif !important;
 }
-
-/* Body Fonts */
-/* h6-x for body */
-#lF {
-  font-family: 'LucidaGrande', sans-serif !important;
-}
-
-html {
-  font-family: 'TechnaSans', sans-serif;
+#tachFont {
+  font-family: 'tachyo', 'Times New Roman', sans-serif !important;
 }

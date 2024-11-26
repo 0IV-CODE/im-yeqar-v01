@@ -1,5 +1,5 @@
-<script lang="ts">
-// import { RouterLink, RouterView } from 'vue-router'
+<script lang="js">
+import { useRouter } from 'vue-router'
 // import { useTheme } from 'vuetify'
 
 // Components
@@ -11,6 +11,8 @@ import { useRoutesAuthStore } from '@/stores/auth/routesAuth.js'
 export default {
     name: "MainNavDrawer",
     data: () => ({
+        // vue-router
+        router: useRouter(),
         // Pinia
         routesAuth: useRoutesAuthStore(),
         navImage: {
@@ -34,6 +36,12 @@ export default {
         routeMap() {
             const activeRoute = this.routesAuth.parentRoutes.find(route => route.active)?.name || "";
             this.childRoutes = this.routesAuth.childRoutes.filter(element => element.parent === activeRoute);
+        },
+        toggleParentRoute(item) {
+            this.routesAuth.stateToggleParentRoute(item)
+            this.routeMap()
+            // todo: will have to add params here
+            this.router.push(this.childRoutes[0].path)
         }
     },
 }
@@ -52,7 +60,8 @@ export default {
             <v-list density="compact" nav>
                 <v-tooltip v-for="(item, i) in routesAuth.parentRoutes" :key="i" :text="item.name" location="end">
                     <template v-slot:activator="{ props }">
-                        <v-list-item v-bind="props" :prepend-icon="item.icon" value="/"></v-list-item>
+                        <v-list-item @click="toggleParentRoute(item)" v-bind="props"
+                            :prepend-icon="item.icon"></v-list-item>
                     </template>
                     <strong class="text-white">{{ item.name }}</strong>
                     <p class="text-white">{{ item.desc }}</p>
@@ -64,7 +73,7 @@ export default {
         <v-navigation-drawer expand-on-hover rail :permanent="true">
             <v-list density="compact" nav>
                 <v-list-item v-for="(item, i) in childRoutes" :key="i" :prepend-icon="item.icon" :title="item.name"
-                    value="/"></v-list-item>
+                    :to="item.path"></v-list-item>
             </v-list>
         </v-navigation-drawer>
     </div>

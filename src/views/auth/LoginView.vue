@@ -13,12 +13,7 @@ export default {
     data: () => ({
         // Pinia
         // routesAuth: useRoutesAuthStore(),
-        loginImage: {
-            src: 'https://ik.imagekit.io/invimgs0101/im-yeqar-v01/imgs/michal-parzuchowski-HbhJyWnE9Oo-unsplash_DfZM9Gav1.jpg?updatedAt=1732582812497',
-            lazySrc: 'https://ik.imagekit.io/invimgs0101/im-yeqar-v01/imgs/tr:q-10/michal-parzuchowski-HbhJyWnE9Oo-unsplash_DfZM9Gav1.jpg?updatedAt=1732582812497',
-            alt: 'Project Logo'
-        },
-        logoImage: {
+        logoImg: {
             src: 'https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/WolfWHITE__Transparent__E7BY_DorX.png?updatedAt=1656026848491',
             lazySrc: 'https://ik.imagekit.io/invimgs0101/IV-CODE/logos/ivcode-logo/tr:q-1/WolfWHITE__Transparent__E7BY_DorX.png?updatedAt=1656026848491',
             height: 85,
@@ -45,7 +40,7 @@ export default {
                 <v-row>
                     <v-col cols="6">
                         <v-sheet height="500" width="320" class="bg-transparent rounded-xl pt-10">
-                            <ImageB :imageProp="logoImage" />
+                            <ImageB :imageProp="logoImg" />
                             <p id="mavFont" class="text-white text-h4 mt-6 mb-4">Login</p>
                             <v-text-field label="Username" variant="outlined" density="compact"
                                 class="w-75"></v-text-field>

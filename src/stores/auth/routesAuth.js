@@ -2,6 +2,32 @@ import { defineStore } from 'pinia'
 
 export const useRoutesAuthStore = defineStore('routesAuth', {
   state: () => ({
+    companies: [
+      {
+        key: '5311uytbsi!d',
+        name: 'STBS',
+        icon: '$Domain',
+        color: '#ff6600',
+        active: true,
+        desc: 'Design and Manufacture Metal Building',
+      },
+      {
+        key: '5486uldosi@d',
+        name: 'CUSA',
+        icon: '$Domain',
+        color: '#00FFFF',
+        active: false,
+        desc: 'Cold-formed Steel Components',
+      },
+      {
+        key: '93201uysmmi)d',
+        name: 'GALIN',
+        icon: '$Domain',
+        color: '#006400',
+        active: false,
+        desc: 'Delivery',
+      },
+    ],
     parentRoutes: [
       {
         name: 'user',
@@ -61,32 +87,44 @@ export const useRoutesAuthStore = defineStore('routesAuth', {
         parent: 'data',
         name: 'Team',
         icon: '$AccountGroupOutline',
-        path: '/:userid/data/team/:viewType',
+        path: '/:userid/data/:company/team/:viewType',
       },
-      { parent: 'data', name: 'Org', icon: '$SitemapOutline', path: '/:userid/data/org/:viewType' },
-      { parent: 'data', name: 'Map', icon: '$Earth', path: '/:userid/data/map/:viewType' },
+      {
+        parent: 'data',
+        name: 'Org',
+        icon: '$SitemapOutline',
+        path: '/:userid/data/:company/org/:viewType',
+      },
+      { parent: 'data', name: 'Map', icon: '$Earth', path: '/:userid/data/:company/map/:viewType' },
       {
         parent: 'data',
         name: 'Graph',
         icon: '$ChartScatterPlotHexbin',
-        path: '/:userid/data/graph/:viewType',
+        path: '/:userid/data/:company/graph/:viewType',
       },
       {
         parent: 'data',
         name: 'Contacts',
         icon: '$PhoneInTalkOutline',
-        path: '/:userid/data/contacts/',
+        path: '/:userid/data/:company/contacts/',
       },
       // admin
+      {
+        parent: 'admin',
+        name: 'Onboarding',
+        icon: '$HandshakeOutline',
+        path: '/:userid/admin/onboarding',
+      },
       { parent: 'admin', name: 'Users', icon: '$TableAccount', path: '/:userid/admin/users' },
-      { parent: 'admin', name: 'Companies', icon: '$Domain', path: '/:userid/admin/companies' },
-      { parent: 'admin', name: 'Leaders', icon: '$AccountTie', path: '/:userid/admin/leaders' },
       {
         parent: 'admin',
         name: 'Teams',
         icon: '$AccountGroupOutline',
         path: '/:userid/admin/teams',
       },
+      { parent: 'admin', name: 'Leaders', icon: '$AccountTie', path: '/:userid/admin/leaders' },
+      { parent: 'admin', name: 'Companies', icon: '$Domain', path: '/:userid/admin/companies' },
+
       //   it
       { parent: 'it', name: 'Tech Inventory', icon: '$Sd', path: '/:userid/it/techinvt' },
       { parent: 'it', name: 'Logs', icon: '$ClipboardTextClockOutline', path: '/:userid/it/logs' },
@@ -98,6 +136,12 @@ export const useRoutesAuthStore = defineStore('routesAuth', {
     stateToggleParentRoute(item) {
       this.parentRoutes.forEach((route) => {
         route.active = route.name === item.name
+      })
+    },
+    stateToggleCompanyRoute(item) {
+      // key or special id needed for no duplicate names
+      this.companies.forEach((route) => {
+        route.active = route.key === item.key
       })
     },
   },

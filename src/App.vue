@@ -50,7 +50,7 @@ export default {
   right: 0;
   height: 4px;
   background: rgb(0, 0, 0);
-  animation: scanline 1.5s linear infinite;
+  animation: scanline 1s linear infinite;
 }
 
 @keyframes scanline {

@@ -18,6 +18,7 @@ import MapView from '../views/data/MapView.vue'
 import GraphView from '../views/data/GraphView.vue'
 import ContactsView from '../views/data/ContactsView.vue'
 // admin
+import OnboardingView from '../views/admin/OnboardingView.vue'
 import UsersView from '../views/admin/UsersView.vue'
 import CompaniesView from '../views/admin/CompaniesView.vue'
 import LeadersView from '../views/admin/LeadersView.vue'
@@ -137,8 +138,9 @@ const router = createRouter({
     },
     // data
     // Team :viewType = guest (limited data view) or regular
+    // :company = selected company (company visibility access required)
     {
-      path: '/:userid/data/team/:viewType',
+      path: '/:userid/data/:company/team/:viewType',
       sensitive: false,
       name: 'Team',
       component: TeamView,
@@ -149,7 +151,7 @@ const router = createRouter({
     },
     // Org :viewType = guest (limited data view) or regular
     {
-      path: '/:userid/data/org/:viewType',
+      path: '/:userid/data/:company/org/:viewType',
       sensitive: false,
       name: 'Org',
       component: OrgView,
@@ -160,7 +162,7 @@ const router = createRouter({
     },
     // Map :viewType = guest (limited data view) or regular
     {
-      path: '/:userid/data/map/:viewType',
+      path: '/:userid/data/:company/map/:viewType',
       sensitive: false,
       name: 'Map',
       component: MapView,
@@ -171,7 +173,7 @@ const router = createRouter({
     },
     // Graph :viewType = guest (limited data view) or regular
     {
-      path: '/:userid/data/graph/:viewType',
+      path: '/:userid/data/:company/graph/:viewType',
       sensitive: false,
       name: 'Graph',
       component: GraphView,
@@ -181,7 +183,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/:userid/data/contacts/',
+      path: '/:userid/data/:company/contacts/',
       sensitive: false,
       name: 'Contacts',
       component: ContactsView,
@@ -229,6 +231,16 @@ const router = createRouter({
       meta: {
         authRequired: true,
         page: 'teams',
+      },
+    },
+    {
+      path: '/:userid/admin/onboarding',
+      sensitive: true,
+      name: 'Onboarding',
+      component: OnboardingView,
+      meta: {
+        authRequired: true,
+        page: 'onboarding',
       },
     },
     // it

@@ -24,6 +24,7 @@ import { mdiPhoneInTalk } from '@mdi/js'
 import { mdiSd } from '@mdi/js'
 import { mdiViewDashboardOutline } from '@mdi/js'
 import { mdiLogout } from '@mdi/js'
+import { mdiHandshakeOutline } from '@mdi/js'
 
 // Vuetify
 // how too add vuetify: https://www.youtube.com/watch?v=w6bj_GCxwqg
@@ -65,6 +66,7 @@ export default createVuetify({
     // ex: <v-icon icon="$account" />
     aliases: {
       ...aliases,
+      HandshakeOutline: mdiHandshakeOutline,
       Logout: mdiLogout,
       ViewDashboardOutline: mdiViewDashboardOutline,
       Sd: mdiSd,

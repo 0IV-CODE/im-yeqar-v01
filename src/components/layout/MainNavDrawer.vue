@@ -69,25 +69,41 @@ export default {
             <v-list-item nav>
                 <v-menu v-model="logoMenu" :close-on-content-click="false" location="end">
                     <template v-slot:activator="{ props }">
-                        <ImageB v-bind="props" :imageProp="logoImg" />
+                        <ImageB class="clickable" v-bind="props" :imageProp="logoImg" />
                     </template>
-                    <v-card width="300">
+                    <v-card width="350">
                         <v-card-text>
                             <v-row>
                                 <v-col cols="4" class="pb-0">
-                                    <v-card height="100" width="80" class="bg-grey pa-4"></v-card>
+                                    <v-card height="100" width="100" class="bg-grey pa-4"></v-card>
                                 </v-col>
                                 <v-col cols="8" class="pb-0">
-                                    <p>USER</p>
+                                    <p id="mavFont">USER</p>
                                     <p class="text-secondary text-h5">ANAKIN SKYWALKER</p>
                                 </v-col>
                                 <v-col cols="12">
                                     <hr />
-                                    <p>CLEARANCE: A1002</p>
+                                    <p id="mavFont">MAIN:</p>
+                                    <v-row>
+                                        <v-col cols="12" class="d-flex">
+                                            <v-icon v-for="(item, i) in routesAuth.parentRoutes" :key="i"
+                                                :icon="item.icon"></v-icon>
+                                        </v-col>
+                                    </v-row>
+                                    <hr />
+                                    <v-row>
+                                        <v-col cols="12" class="d-flex">
+                                            <p id="mavFont">CLEARANCE:</p>
+                                            <p class="ml-2"><b>A1002</b></p>
+                                            <v-spacer />
+                                            <p id="mavFont">ACTIVE:</p>
+                                            <p class="ml-2"><b>32/hrs</b></p>
+                                        </v-col>
+                                    </v-row>
                                     <hr />
                                 </v-col>
                                 <v-col cols="12">
-                                    <v-btn block variant="outlined" color="error" class="rounded-0">
+                                    <v-btn id="mavFont" block variant="outlined" color="error" class="rounded-0">
                                         SIGN OUT
                                     </v-btn>
                                 </v-col>
@@ -96,6 +112,7 @@ export default {
                     </v-card>
                 </v-menu>
             </v-list-item>
+
             <v-divider></v-divider>
             <!-- main routes -->
             <v-list density="compact" nav>

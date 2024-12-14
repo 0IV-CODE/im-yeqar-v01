@@ -20,3 +20,8 @@
 #tachFont {
   font-family: 'tachyo', 'Times New Roman', sans-serif !important;
 }
+
+/* links */
+.clickable {
+  cursor: pointer !important;
+}
